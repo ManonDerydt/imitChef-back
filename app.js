@@ -1,10 +1,14 @@
 const express = require('express');
-const bodyparser = require('body-parser');
+const cors = require('cors')
 const models = require("./models");
+const userRoutes = require("./modules/auth/users/users.routes");
 
 const app = express();
+
+app.use(cors())
 app.get("/", (req, res, next) => res.send("OK"));
 
+app.use(userRoutes);
 
 (async() => {
     try {
