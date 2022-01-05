@@ -1,5 +1,9 @@
 const dotenv = require("dotenv");
 const UserModel = require("./user");
+const TvShowModel = require("./tv_show");
+const CandidateModel = require("./candidate");
+const ReciepesModel = require("./reciepe");
+
 dotenv.config();
 
 const {Sequelize, Op} = require("sequelize");
@@ -26,6 +30,9 @@ const sequelize = new Sequelize(
 
 const models = {
     User: UserModel.init(sequelize, Sequelize),
+    Tv_Show: TvShowModel.init(sequelize, Sequelize),
+    Candidate: CandidateModel.init(sequelize, Sequelize),
+    Reciepe: ReciepesModel.init(sequelize, Sequelize),
 }
 //
 // Object.values(models)
