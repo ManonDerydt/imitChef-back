@@ -2,12 +2,10 @@ const path = require("path");
 const models = require(path.resolve("./models"));
 const debug = require("debug")("app:admin:users");
 
-
 exports.createUsers = (req, res, next) => {
     debug("createUser");
 
     console.log(req.body)
-    console.log("hello")
     const {password, email, lastname, firstname} = req.body;
 
     const user = {
