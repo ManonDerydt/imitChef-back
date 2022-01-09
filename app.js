@@ -15,23 +15,23 @@ app.use(bodyParser.json())
 app.get("/", (req, res, next) => res.send("OK"));
 
 app.use(userRoutes);
-// app.use(tvShowRoutes);
-// app.use(candidateRoutes);
-// app.use(reciepeRoutes);
+app.use(tvShowRoutes);
+app.use(candidateRoutes);
+app.use(reciepeRoutes);
 
 (async() => {
     try {
         await models.sequelize.authenticate();
 
         const users = await models.User.findAll();
-        // const tvShows = await models.Tv_Show.findAll();
-        // const candidates = await models.Candidate.findAll();
-        // const reciepes = await models.Reciepe.findAll();
-        //
-        // console.log(tvShows)
-        // console.log(users)
-        // console.log(candidates)
-        // console.log(reciepes)
+        const tvShows = await models.Tv_Show.findAll();
+        const candidates = await models.Candidate.findAll();
+        const reciepes = await models.Reciepe.findAll();
+
+        console.log(tvShows)
+        console.log(users)
+        console.log(candidates)
+        console.log(reciepes)
 
         console.log('Connection has been established successfully.');
     } catch (error) {

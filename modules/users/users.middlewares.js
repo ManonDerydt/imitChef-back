@@ -1,6 +1,6 @@
 const path = require("path");
 const models = require(path.resolve("./models"));
-const debug = require("debug")("app:admin:users");
+const debug = require("debug")("app:users");
 
 exports.createUsers = (req, res, next) => {
     debug("createUser");
