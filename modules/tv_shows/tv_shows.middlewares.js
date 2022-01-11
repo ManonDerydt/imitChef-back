@@ -19,8 +19,27 @@ exports.getAllShow = (req, res, next) => {
             throw error;
         }
     }
+};
 
-    function getShow(){
-        return req.Tv_Show;
+exports.getAllShowById = (req, res, next) => {
+    debug("getAllShowById");
+
+    console.log("hello world")
+
+    const showId = req.params.id;
+
+    return execute()
+        .then(show => res.json(show))
+        .catch(err => next(err));
+
+    async function execute(){
+        try{
+            let shows;
+            shows = await models.Tv_Show.findAll(showId);
+            console.log(showId)
+            return shows;
+        }catch (error){
+            throw error;
+        }
     }
 };
