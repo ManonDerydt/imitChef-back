@@ -24,9 +24,9 @@ exports.getAllShow = (req, res, next) => {
 exports.getAllShowById = (req, res, next) => {
     debug("getAllShowById");
 
-    console.log("hello world")
+    console.log("hello world");
 
-    const showId = req.params.id;
+    const {id} = req.params;
 
     return execute()
         .then(show => res.json(show))
@@ -34,10 +34,8 @@ exports.getAllShowById = (req, res, next) => {
 
     async function execute(){
         try{
-            let shows;
-            shows = await models.Tv_Show.findAll(showId);
-            console.log(showId)
-            return shows;
+            return await models.Tv_Show.findByPk(id);
+
         }catch (error){
             throw error;
         }

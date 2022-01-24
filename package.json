@@ -33,6 +33,6 @@
     "tedious": "^11.8.0"
   },
   "devDependencies": {
-    "sequelize-cli": "^6.3.0"
+    "sequelize-cli": "^6.4.1"
   }
 }
