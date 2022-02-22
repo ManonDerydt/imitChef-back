@@ -7,7 +7,7 @@ class TvShow extends Sequelize.Model {
             {
                 name: {type: Sequelize.STRING,  allowNull: false},
                 category: {type: Sequelize.STRING,  allowNull: false},
-                // image: {type: Sequelize.STRING,  allowNull: false}
+                image: {type: Sequelize.STRING,  allowNull: false}
             }, {
                 tableName: "Tv_show",
                 modelName: "Tv_show",

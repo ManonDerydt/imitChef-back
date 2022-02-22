@@ -1,9 +1,10 @@
 const path = require("path");
 const models = require(path.resolve("./models"));
-const debug = require("debug")("app:candidates");
+const debug = require("debug")("app:./reciepeFromCandidates");
 
-exports.getCandidates = (req, res, next) => {
-    debug("getCandidates");
+
+exports.getRecipeFromCandidates = (req, res, next) => {
+    debug("getRecipeFromCandidates");
 
     return execute()
         .then(show => res.json(show))
@@ -11,7 +12,7 @@ exports.getCandidates = (req, res, next) => {
 
     async function execute(){
         try{
-            return await models.Candidate.findAll();
+            return await models.ReciepefromCandidates.findAll();
         }catch (error){
             throw error;
         }

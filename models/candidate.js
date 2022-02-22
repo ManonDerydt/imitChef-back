@@ -9,6 +9,7 @@ class Candidate extends Sequelize.Model {
                 firstname: {type: Sequelize.STRING,  allowNull: false},
                 reciepes: {type: Sequelize.STRING, allowNull: false},
                 tv_show: {type: Sequelize.STRING, allowNull: false},
+                image: {type: Sequelize.STRING, allowNull: false}
             }, {
 
                 tableName: "Candidates",

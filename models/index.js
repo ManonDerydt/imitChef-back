@@ -3,6 +3,7 @@ const UserModel = require("./user");
 const TvShowModel = require("./tv_show");
 const CandidateModel = require("./candidate");
 const ReciepesModel = require("./reciepe");
+// const CandidatesHasReciepesModel = require("./candidates_has_Reciepes");
 
 dotenv.config();
 
@@ -33,6 +34,7 @@ const models = {
     Tv_Show: TvShowModel.init(sequelize, Sequelize),
     Candidate: CandidateModel.init(sequelize, Sequelize),
     Reciepe: ReciepesModel.init(sequelize, Sequelize),
+    // ReciepefromCandidates: CandidatesHasReciepesModel.init(sequelize, Sequelize),
 }
 //
 // Object.values(models)

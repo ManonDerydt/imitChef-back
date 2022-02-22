@@ -6,6 +6,7 @@ const userRoutes = require("./modules/users/users.routes");
 const tvShowRoutes = require("./modules/tv_shows/tv_shows.routes");
 const candidateRoutes = require("./modules/candidates/candidates.routes");
 const reciepeRoutes = require("./modules/reciepes/reciepes.routes");
+const reciepeFromCandidatesRoutes = require("./modules/reciepes_from_candidates/reciepefromCandidates.routes");
 
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(userRoutes);
 app.use(tvShowRoutes);
 app.use(candidateRoutes);
 app.use(reciepeRoutes);
+app.use(reciepeFromCandidatesRoutes);
 
 (async() => {
     try {
@@ -32,6 +34,7 @@ app.use(reciepeRoutes);
         console.log(users)
         console.log(candidates)
         console.log(reciepes)
+        // console.log(CandidatesHasReciepes)
 
         console.log('Connection has been established successfully.');
     } catch (error) {
