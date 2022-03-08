@@ -19,6 +19,10 @@ class Candidate extends Sequelize.Model {
             }
         );
     }
+
+    static associate(models) {
+        Candidate.belongsToMany(models.Tv_Show, {through : models.Candidates_has_Tv_show})
+    }
 }
 
 module.exports = Candidate;

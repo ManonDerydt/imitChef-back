@@ -16,6 +16,11 @@ class TvShow extends Sequelize.Model {
             }
         );
     }
+
+    static associate(models) {
+        console.log(models)
+        TvShow.belongsToMany(models.Candidate, {through : models.Candidates_has_Tv_show})
+    }
 }
 
 module.exports = TvShow;

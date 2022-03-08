@@ -30,8 +30,21 @@ exports.getShow = (req, res, next) => {
 
     async function execute(){
         try{
-            return await models.Tv_Show.findByPk(id);
+            return await models.Tv_Show.findByPk(id, {
+                attributes : ["id", "name", "category", "image"],
+                include : [
+                    {
+                        model : models.Candidate,
+                        // include: [
+                        //     {
+                        //         model : models.Reciepe
+                        //     }
+                        // ]
+                    }
+                ]
+            });
         }catch (error){
+            console.log(error)
             throw error;
         }
     }

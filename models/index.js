@@ -3,7 +3,7 @@ const UserModel = require("./user");
 const TvShowModel = require("./tv_show");
 const CandidateModel = require("./candidate");
 const ReciepesModel = require("./reciepe");
-// const CandidatesHasReciepesModel = require("./candidates_has_Reciepes");
+const Candidates_has_Tv_showModel = require("./candidates_has_tv-show");
 
 dotenv.config();
 
@@ -34,12 +34,12 @@ const models = {
     Tv_Show: TvShowModel.init(sequelize, Sequelize),
     Candidate: CandidateModel.init(sequelize, Sequelize),
     Reciepe: ReciepesModel.init(sequelize, Sequelize),
-    // ReciepefromCandidates: CandidatesHasReciepesModel.init(sequelize, Sequelize),
+    Candidates_has_Tv_show: Candidates_has_Tv_showModel.init(sequelize, Sequelize),
 }
-//
-// Object.values(models)
-//     .filter(model => typeof model.associate === "function")
-//     .forEach(model => model.associate(models));
+
+Object.values(models)
+    .filter(model => typeof model.associate === "function")
+    .forEach(model => model.associate(models));
 
 
 models.sequelize = sequelize;

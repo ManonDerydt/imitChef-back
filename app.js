@@ -30,10 +30,10 @@ app.use(reciepeFromCandidatesRoutes);
         const candidates = await models.Candidate.findAll();
         const reciepes = await models.Reciepe.findAll();
 
-        console.log(tvShows)
-        console.log(users)
-        console.log(candidates)
-        console.log(reciepes)
+        // console.log(tvShows)
+        // console.log(users)
+        // console.log(candidates)
+        // console.log(reciepes)
         // console.log(CandidatesHasReciepes)
 
         console.log('Connection has been established successfully.');
