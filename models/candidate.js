@@ -19,9 +19,11 @@ class Candidate extends Sequelize.Model {
             }
         );
     }
+    // Etape 9 : Associé les tables de jointure
 
     static associate(models) {
         Candidate.belongsToMany(models.Tv_Show, {through : models.Candidates_has_Tv_show})
+        Candidate.belongsToMany(models.Reciepe, {through : models.Candidates_has_Reciepes})
     }
 }
 

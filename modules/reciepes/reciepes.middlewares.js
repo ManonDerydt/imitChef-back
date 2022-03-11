@@ -18,6 +18,7 @@ exports.getReciepe= (req, res, next) => {
     }
 };
 
+// Etape 6 : Réception de l'id des reciepes dans la route
 exports.getReciepeById = (req, res, next) => {
     debug("getReciepeById");
 

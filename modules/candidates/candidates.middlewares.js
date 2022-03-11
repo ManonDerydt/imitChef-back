@@ -18,6 +18,7 @@ exports.getCandidates = (req, res, next) => {
     }
 };
 
+//Etape 6 : On récupère l'id du show
 exports.getCandidatesByShow = (req, res, next) => {
     debug("getCandidatesByShow");
 

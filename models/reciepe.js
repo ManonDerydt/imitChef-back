@@ -17,6 +17,9 @@ class Reciepe extends Sequelize.Model {
             }
         );
     }
+    static associate(models) {
+        Reciepe.belongsToMany(models.Candidate, {through : models.Candidates_has_Reciepes})
+    }
 }
 
 module.exports = Reciepe;
