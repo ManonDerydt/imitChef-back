@@ -9,29 +9,56 @@ exports.getCandidates = (req, res, next) => {
         .then(show => res.json(show))
         .catch(err => next(err));
 
-    async function execute(){
-        try{
+    async function execute() {
+        try {
             return await models.Candidate.findAll();
-        }catch (error){
+        } catch (error) {
             throw error;
         }
     }
 };
 
+exports.getCandidateById = (req, res, next) => {
+    debug("getCandidateById");
+
+    const { id } = req.params;
+
+    return execute()
+        .then(candidate => res.json(candidate))
+        .catch(err => next(err));
+
+    async function execute() {
+        try {
+            return await models.Candidate.findByPk(id, {
+                attribute: ["id", "lastname", "firstname", "image"],
+                include: [
+                    {
+                        model: models.Reciepe,
+                        attributes: ["id", "image", "titre", "description"]
+                    }
+                ]
+            });
+        } catch (error) {
+            throw error;
+        }
+    }
+
+}
+
 //Etape 6 : On récupère l'id du show
 exports.getCandidatesByShow = (req, res, next) => {
     debug("getCandidatesByShow");
 
-    const {showId} = req.params;
+    const { showId } = req.params;
 
     return execute()
         .then(show => res.json(show))
         .catch(err => next(err));
 
-    async function execute(){
-        try{
+    async function execute() {
+        try {
             return await models.Candidate.findAll(showId)
-        }catch (error){
+        } catch (error) {
             throw error;
         }
     }
@@ -44,10 +71,10 @@ exports.getReciepeByCandidateOnClick = (req, res, next) => {
         .then(candidate => res.json(candidate))
         .catch(err => next(err));
 
-    async function execute(){
-        try{
+    async function execute() {
+        try {
             return await models.Candidate.findAll();
-        }catch (error){
+        } catch (error) {
             throw error;
         }
     }

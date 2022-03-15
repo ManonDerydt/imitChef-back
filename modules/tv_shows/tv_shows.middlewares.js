@@ -35,9 +35,11 @@ exports.getShow = (req, res, next) => {
                 include : [
                     {
                         model : models.Candidate,
+                        attributes: ["id", "lastname", "firstname", "image"],
                         include: [
                             {
-                                model : models.Reciepe
+                                model : models.Reciepe,
+                                attributes: ["id", "image", "titre", "description"]
                             }
                         ]
                     }
@@ -49,27 +51,3 @@ exports.getShow = (req, res, next) => {
         }
     }
 };
-
-// exports.getCandidatesByShow = (req, res, next) => {
-//     debug("getCandidatesByShow");
-//
-//     const {tv_show} = req.params;
-//
-//     return execute()
-//         .then(show => res.json(show))
-//         .catch(err => next(err));
-//
-//     async function execute(){
-//         try{
-//             return await models.Tv_Show.findAll({
-//                 include: [{
-//                     model: models.Reciepe
-//                 }],
-//             })
-//             console.log(models.Candidate)
-//             console.log("test")
-//         }catch (error){
-//             throw error;
-//         }
-//     }
-// };
