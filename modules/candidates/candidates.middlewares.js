@@ -36,3 +36,19 @@ exports.getCandidatesByShow = (req, res, next) => {
         }
     }
 };
+
+exports.getReciepeByCandidateOnClick = (req, res, next) => {
+    debug("getReciepeByCandidateOnClick");
+
+    return execute()
+        .then(candidate => res.json(candidate))
+        .catch(err => next(err));
+
+    async function execute(){
+        try{
+            return await models.Candidate.findAll();
+        }catch (error){
+            throw error;
+        }
+    }
+};

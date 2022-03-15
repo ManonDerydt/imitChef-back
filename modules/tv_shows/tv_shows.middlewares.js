@@ -19,7 +19,6 @@ exports.getAllShow = (req, res, next) => {
     }
 };
 
-//Etape 7 : Fonction de la page précédente qui va déterminer quels éléments on reprend
 exports.getShow = (req, res, next) => {
     debug("getShow");
 

@@ -6,4 +6,6 @@ router.route("/candidates").get(candidates.getCandidates);
 // Etape 5 : Réception de la route du front
 router.route("/candidateByShow/:showId").get(candidates.getCandidatesByShow);
 
+router.route("/candidatesOnclick").get(candidates.getReciepeByCandidateOnClick);
+
 module.exports = router;

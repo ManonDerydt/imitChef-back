@@ -18,11 +18,8 @@ exports.getReciepe= (req, res, next) => {
     }
 };
 
-// Etape 6 : Réception de l'id des reciepes dans la route
 exports.getReciepeById = (req, res, next) => {
     debug("getReciepeById");
-
-    const {id} = req.params;
 
     return execute()
         .then(reciepe => res.json(reciepe))
@@ -30,7 +27,7 @@ exports.getReciepeById = (req, res, next) => {
 
     async function execute(){
         try{
-            return await models.Reciepe.findByPk(id);
+            return await models.Reciepe.findAll();
         }catch (error){
             throw error;
         }
