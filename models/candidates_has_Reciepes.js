@@ -1,4 +1,3 @@
-// Etape 8 : mise en forme du model de la table de jointure
 const {Sequelize} = require("sequelize");
 
 class Candidates_has_Reciepes extends Sequelize.Model {

@@ -1,6 +1,6 @@
 const {Sequelize} = require("sequelize");
 
-class Reciepe extends Sequelize.Model {
+class Ingredients extends Sequelize.Model {
 
     static init(sequelize, DataTypes) {
         return super.init(
@@ -20,9 +20,8 @@ class Reciepe extends Sequelize.Model {
         );
     }
     static associate(models) {
-        Reciepe.belongsToMany(models.Candidate, {through : models.Candidates_has_Reciepes})
-        Reciepe.belongsToMany(models.Ingredient, {through : models.Reciepes_has_Ingredients})
+        Ingredients.belongsToMany(models.Reciepe, {through : models.Reciepe_has_ingredients})
     }
 }
 
-module.exports = Reciepe;
+module.exports = Ingredients;

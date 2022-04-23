@@ -5,6 +5,8 @@ const CandidateModel = require("./candidate");
 const ReciepesModel = require("./reciepe");
 const Candidates_has_Tv_showModel = require("./candidates_has_tv-show");
 const Candidates_has_ReciepesModel = require("./candidates_has_Reciepes");
+const IngredientsModel = require("./ingredients");
+const Reciepes_has_IngredientsModel = require("./reciepes_has_ingredients");
 
 dotenv.config();
 
@@ -29,14 +31,16 @@ const sequelize = new Sequelize(
         }
     }
 );
-// Etape 10 : Créer le model de la table de jointure
+
 const models = {
     User: UserModel.init(sequelize, Sequelize),
     Tv_Show: TvShowModel.init(sequelize, Sequelize),
     Candidate: CandidateModel.init(sequelize, Sequelize),
     Reciepe: ReciepesModel.init(sequelize, Sequelize),
+    Ingredient: IngredientsModel.init(sequelize, Sequelize),
     Candidates_has_Tv_show: Candidates_has_Tv_showModel.init(sequelize, Sequelize),
     Candidates_has_Reciepes: Candidates_has_ReciepesModel.init(sequelize, Sequelize),
+    Reciepes_has_Ingredients: Reciepes_has_IngredientsModel.init(sequelize, Sequelize),
 }
 
 Object.values(models)

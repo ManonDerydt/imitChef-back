@@ -2,24 +2,26 @@ const path = require("path");
 const models = require(path.resolve("./models"));
 const debug = require("debug")("app:reciepes+*");
 
-exports.getReciepe= (req, res, next) => {
+// exports.getReciepe= (req, res, next) => {
+//     debug("getReciepe");
+//
+//     return execute()
+//         .then(show => res.json(show))
+//         .catch(err => next(err));
+//
+//     async function execute(){
+//         try{
+//             return await models.Reciepe.findAll();
+//         }catch (error){
+//             throw error;
+//         }
+//     }
+// };
+
+exports.getReciepe = (req, res, next) => {
     debug("getReciepe");
 
-    return execute()
-        .then(show => res.json(show))
-        .catch(err => next(err));
-
-    async function execute(){
-        try{
-            return await models.Reciepe.findAll();
-        }catch (error){
-            throw error;
-        }
-    }
-};
-
-exports.getReciepeById = (req, res, next) => {
-    debug("getReciepeById");
+    const { id } = req.params;
 
     return execute()
         .then(reciepe => res.json(reciepe))
@@ -27,7 +29,13 @@ exports.getReciepeById = (req, res, next) => {
 
     async function execute(){
         try{
-            return await models.Reciepe.findAll();
+            return await models.Reciepe.findByPk(id, {
+                attributes: ["description", "image", "titre", "time_cooking", "difficulty"],
+                include: [{
+                        model: models.Ingredient,
+                        attributes: ["salt", "peper","poultry"]
+                    }]}
+                );
         }catch (error){
             throw error;
         }
