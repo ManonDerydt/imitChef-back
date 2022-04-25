@@ -6,7 +6,11 @@ const ReciepesModel = require("./reciepe");
 const Candidates_has_Tv_showModel = require("./candidates_has_tv-show");
 const Candidates_has_ReciepesModel = require("./candidates_has_Reciepes");
 const IngredientsModel = require("./ingredients");
+const StepModel = require("./step");
+const MaterialModel = require("./materials");
 const Reciepes_has_IngredientsModel = require("./reciepes_has_ingredients");
+const Reciepes_has_MaterialsModel = require("./reciepes_has_materials");
+const Reciepes_has_StepsModel = require("./reciepes_has_steps");
 
 dotenv.config();
 
@@ -38,9 +42,13 @@ const models = {
     Candidate: CandidateModel.init(sequelize, Sequelize),
     Reciepe: ReciepesModel.init(sequelize, Sequelize),
     Ingredient: IngredientsModel.init(sequelize, Sequelize),
+    Step: StepModel.init(sequelize, Sequelize),
+    Material: MaterialModel.init(sequelize, Sequelize),
     Candidates_has_Tv_show: Candidates_has_Tv_showModel.init(sequelize, Sequelize),
     Candidates_has_Reciepes: Candidates_has_ReciepesModel.init(sequelize, Sequelize),
     Reciepes_has_Ingredients: Reciepes_has_IngredientsModel.init(sequelize, Sequelize),
+    Reciepes_has_Materials: Reciepes_has_MaterialsModel.init(sequelize, Sequelize),
+    Reciepes_has_Steps: Reciepes_has_StepsModel.init(sequelize, Sequelize),
 }
 
 Object.values(models)

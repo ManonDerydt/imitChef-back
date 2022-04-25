@@ -31,11 +31,20 @@ exports.getReciepe = (req, res, next) => {
         try{
             return await models.Reciepe.findByPk(id, {
                 attributes: ["description", "image", "titre", "time_cooking", "difficulty"],
-                include: [{
+                include: [
+                    {
                         model: models.Ingredient,
                         attributes: ["salt", "peper","poultry"]
-                    }]}
-                );
+                    },
+                    {
+                        model: models.Material,
+                        attributes: ["Grill", "Four"]
+                    },
+                    // {
+                    //     model: models.Step,
+                    //     attributes: ["first_step", "second_step", "third_step", "fourth_step", "fifth_step"]
+                    // },
+                ]});
         }catch (error){
             throw error;
         }

@@ -22,6 +22,8 @@ class Reciepe extends Sequelize.Model {
     static associate(models) {
         Reciepe.belongsToMany(models.Candidate, {through : models.Candidates_has_Reciepes})
         Reciepe.belongsToMany(models.Ingredient, {through : models.Reciepes_has_Ingredients})
+        Reciepe.belongsToMany(models.Material, {through : models.Reciepes_has_Materials})
+        Reciepe.belongsToMany(models.Step, {through : models.Reciepes_has_Steps})
     }
 }
 
