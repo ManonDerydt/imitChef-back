@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@fortawesome/angular-fontawesome": "^0.10.2",
+    "@ionic/storage": "^3.0.6",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.1",
     "cors": "^2.8.5",

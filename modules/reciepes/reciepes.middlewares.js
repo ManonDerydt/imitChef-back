@@ -40,10 +40,10 @@ exports.getReciepe = (req, res, next) => {
                         model: models.Material,
                         attributes: ["Grill", "Four"]
                     },
-                    // {
-                    //     model: models.Step,
-                    //     attributes: ["first_step", "second_step", "third_step", "fourth_step", "fifth_step"]
-                    // },
+                    {
+                        model: models.Step,
+                        attributes: ["first_step", "second_step", "third_step", "fourth_step", "fifth_step"]
+                    },
                 ]});
         }catch (error){
             throw error;
