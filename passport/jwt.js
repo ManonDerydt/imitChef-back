@@ -11,7 +11,7 @@ passport.use(new JWTStrategy({
     async (jwtPayload, cb) => {
 
         try {
-            const user = models.User.findByPk(jwtPayload.id);
+            const user = models.User.findByPk(jwtPayload.id, {attributes: ["id"]});
             return cb(null, user)
         } catch(error) {
             return cb(error)
