@@ -68,6 +68,7 @@ exports.loginUsers = (req, res, next) => {
                 if (err || !user) {
                     return reject(info.message);
                 }
+                console.log(user);
                 return resolve(user);
             })(req, res, next)
         }
@@ -96,7 +97,6 @@ exports.reciepes = (req, res, next) => {
 
     async function execute() {
         try {
-            console.log(req.user)
             return req.user.getReciepes();
 
         } catch (error) {
