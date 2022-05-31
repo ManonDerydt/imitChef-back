@@ -4,8 +4,11 @@ const passport = require("passport");
 
 router.route("/users").post(users.createUsers);
 router.route("/users/login").post(users.loginUsers);
-router.route("/users/reciepes").get(passport.authenticate("jwt", {session: false}, null) ,users.reciepes);
-router.route("/users").get(passport.authenticate("jwt", {session: false}, null) ,users.getUsers);
+
+router.use("/users", passport.authenticate("jwt", {session: false}, null));
+
+router.route("/users").get(users.getUsers);
+router.route("/users/reciepes").get(users.reciepes);
 // router.route("/users/account").get(users.users);
 
 module.exports = router;
