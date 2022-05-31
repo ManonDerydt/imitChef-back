@@ -23,7 +23,7 @@ passport.use(new LocalStrategy({
             if (!matchPassword) {
                 return cb(null, false, {message: "NO_USER"})
             }
-            delete user.password;
+            delete user.dataValues.password;
             return cb(null, user, {message: "OK"})
         } catch (error) {
             return cb(error)
