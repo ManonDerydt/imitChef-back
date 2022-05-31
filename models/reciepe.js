@@ -24,6 +24,7 @@ class Reciepe extends Sequelize.Model {
         Reciepe.belongsToMany(models.Ingredient, {through : models.Reciepes_has_Ingredients})
         Reciepe.belongsToMany(models.Material, {through : models.Reciepes_has_Materials})
         Reciepe.belongsToMany(models.Step, {through : models.Reciepes_has_Steps})
+        Reciepe.belongsToMany(models.User, {through : models.Users_has_Reciepes})
     }
 }
 

@@ -83,7 +83,60 @@ exports.loginUsers = (req, res, next) => {
                     return resolve(token)
                 });
             })
-
         }
     }
 }
+
+exports.reciepes = (req, res, next) => {
+    debug('reciepes')
+
+    return execute()
+        .then(reciepes => res.json(reciepes))
+        .catch(err => next(err));
+
+    async function execute() {
+        try {
+            console.log(req.user)
+            return req.user.getReciepes();
+
+        } catch (error) {
+            throw error;
+        }
+    }
+}
+
+
+exports.getUsers = (req, res, next) => {
+    debug('getUsers')
+
+    return execute()
+        .then(users => res.json(users))
+        .catch(err => next(err));
+
+    async function execute() {
+        try {
+            return req.user;
+
+            } catch (error) {
+            throw error;
+        }
+    }
+}
+
+
+// exports.users = (req, res, next) => {
+//     debug('users')
+//
+//     return execute()
+//         .then(users => res.json(users))
+//         .catch(err => next(err));
+//
+//     async function execute() {
+//         try {
+//             return await models.User.findByPk(req.user.id, {attributes: ["id"]});
+//
+//         } catch (error) {
+//             throw error;
+//         }
+//     }
+// }

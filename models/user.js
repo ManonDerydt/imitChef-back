@@ -21,6 +21,9 @@ class User extends Sequelize.Model {
             }
         );
     }
+    static associate(models) {
+        User.belongsToMany(models.Reciepe, {through : models.Users_has_Reciepes})
+    }
 }
 
 module.exports = User;
