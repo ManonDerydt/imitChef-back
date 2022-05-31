@@ -6,7 +6,8 @@ const userRoutes = require("./modules/users/users.routes");
 const tvShowRoutes = require("./modules/tv_shows/tv_shows.routes");
 const candidateRoutes = require("./modules/candidates/candidates.routes");
 const reciepeRoutes = require("./modules/reciepes/reciepes.routes");
-const passportLocal = require("./passport/local");
+require("./passport/local");
+require("./passport/jwt");
 
 
 const app = express();
