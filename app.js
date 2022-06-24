@@ -6,6 +6,7 @@ const userRoutes = require("./modules/users/users.routes");
 const tvShowRoutes = require("./modules/tv_shows/tv_shows.routes");
 const candidateRoutes = require("./modules/candidates/candidates.routes");
 const reciepeRoutes = require("./modules/reciepes/reciepes.routes");
+const restaurantRoutes = require("./modules/restaurants/restaurants.routes");
 require("./passport/local");
 require("./passport/jwt");
 
@@ -20,6 +21,7 @@ app.use(userRoutes);
 app.use(tvShowRoutes);
 app.use(candidateRoutes);
 app.use(reciepeRoutes);
+app.use(restaurantRoutes);
 
 (async() => {
     try {
