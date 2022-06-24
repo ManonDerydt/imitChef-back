@@ -39,7 +39,7 @@ exports.getShow = (req, res, next) => {
                         include: [
                             {
                                 model : models.Reciepe,
-                                attributes: ["id", "image", "titre", "description","time_cooking","difficulty"]
+                                attributes: ["id", "image", "title", "description","time_cooking","difficulty"]
                             }
                         ]
                     }

@@ -34,7 +34,7 @@ exports.getCandidateById = (req, res, next) => {
                 include: [
                     {
                         model: models.Reciepe,
-                        attributes: ["id", "image", "titre", "description"],
+                        attributes: ["id", "image", "title", "description"],
                         include : [
                             {
                                 model: models.Ingredient,
