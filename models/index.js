@@ -3,8 +3,10 @@ const UserModel = require("./user");
 const TvShowModel = require("./tv_show");
 const CandidateModel = require("./candidate");
 const ReciepesModel = require("./reciepe");
+const RestaurantModel = require("./restaurant");
 const Candidates_has_Tv_showModel = require("./candidates_has_tv-show");
 const Candidates_has_ReciepesModel = require("./candidates_has_Reciepes");
+const Reciepes_has_RestaurantsModel = require("./reciepes_has_restaurants");
 const IngredientsModel = require("./ingredients");
 const StepModel = require("./step");
 const MaterialModel = require("./materials");
@@ -42,11 +44,13 @@ const models = {
     Tv_Show: TvShowModel.init(sequelize, Sequelize),
     Candidate: CandidateModel.init(sequelize, Sequelize),
     Reciepe: ReciepesModel.init(sequelize, Sequelize),
+    Restaurant: RestaurantModel.init(sequelize, Sequelize),
     Ingredient: IngredientsModel.init(sequelize, Sequelize),
     Step: StepModel.init(sequelize, Sequelize),
     Material: MaterialModel.init(sequelize, Sequelize),
     Candidates_has_Tv_show: Candidates_has_Tv_showModel.init(sequelize, Sequelize),
     Candidates_has_Reciepes: Candidates_has_ReciepesModel.init(sequelize, Sequelize),
+    Reciepes_has_Restaurants: Reciepes_has_RestaurantsModel.init(sequelize, Sequelize),
     Reciepes_has_Ingredients: Reciepes_has_IngredientsModel.init(sequelize, Sequelize),
     Reciepes_has_Materials: Reciepes_has_MaterialsModel.init(sequelize, Sequelize),
     Reciepes_has_Steps: Reciepes_has_StepsModel.init(sequelize, Sequelize),
