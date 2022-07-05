@@ -21,6 +21,8 @@ const debug = require("debug")("app:reciepes+*");
 exports.getReciepe = (req, res, next) => {
     debug("getReciepe");
 
+    console.log("je suis dans la fonction getReciepe")
+
     const { id } = req.params;
 
     return execute()
@@ -30,7 +32,7 @@ exports.getReciepe = (req, res, next) => {
     async function execute(){
         try{
             return await models.Reciepe.findByPk(id, {
-                attributes: ["description", "image", "titre", "time_cooking", "difficulty"],
+                attributes: ["description", "image", "title", "time_cooking", "difficulty"],
                 include: [
                     {
                         model: models.Ingredient,
@@ -43,6 +45,18 @@ exports.getReciepe = (req, res, next) => {
                     {
                         model: models.Step,
                         attributes: ["first_step", "second_step", "third_step", "fourth_step", "fifth_step"]
+                    },
+                    {
+                        model: models.Restaurant,
+                        attributes: ["id","country", "name", "city", "chef", "category"]
+                    },
+                    {
+                        model: models.User,
+                        attributes: ["lastname","firstname", "email"]
+                    },
+                    {
+                        model: models.Order,
+                        attributes: ["id", "time", "price", "cutlery", "discount", "tip"]
                     },
                 ]});
         }catch (error){

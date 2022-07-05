@@ -1,20 +1,21 @@
 const path = require("path");
 const models = require(path.resolve("./models"));
-const debug = require("debug")("app:restaurants");
+const localforage = require("localforage");
+const debug = require("debug")("app:orders");
 
-exports.getRestaurant = (req, res, next) => {
-    debug("getRestaurant");
+exports.getOrder = (req, res, next) => {
+    debug("getOrder");
 
     const {id} = req.params;
 
     return execute()
-        .then(restaurant => res.json(restaurant))
+        .then(order => res.json(order))
         .catch(err => next(err));
 
     async function execute(){
         try{
-            return await models.Restaurant.findByPk(id, {
-                attributes : ["id", "chef", "country", "name", "city", "category","image","description","discount","adress","number","email"],
+            return await models.Order.findByPk(id, {
+                attributes : ["id", "time", "price", "cutlery", "discount", "tip"],
                 include : [
                     {
                         model : models.Reciepe,

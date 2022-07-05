@@ -7,7 +7,7 @@ class Reciepe extends Sequelize.Model {
             {
                 description: {type: Sequelize.STRING,  allowNull: false},
                 image: {type: Sequelize.STRING, allowNull: false},
-                titre: {type: Sequelize.STRING, allowNull: false},
+                title: {type: Sequelize.STRING, allowNull: false},
                 time_cooking: {type: Sequelize.STRING, allowNull: true},
                 difficulty: {type: Sequelize.STRING, allowNull: true},
 
@@ -25,6 +25,8 @@ class Reciepe extends Sequelize.Model {
         Reciepe.belongsToMany(models.Material, {through : models.Reciepes_has_Materials})
         Reciepe.belongsToMany(models.Step, {through : models.Reciepes_has_Steps})
         Reciepe.belongsToMany(models.User, {through : models.Users_has_Reciepes})
+        Reciepe.belongsToMany(models.Restaurant, {through : models.Reciepes_has_Restaurants})
+        Reciepe.belongsToMany(models.Order, {through : models.Reciepes_has_Orders})
     }
 }
 

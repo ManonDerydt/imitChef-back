@@ -9,10 +9,12 @@ const Candidates_has_ReciepesModel = require("./candidates_has_Reciepes");
 const Reciepes_has_RestaurantsModel = require("./reciepes_has_restaurants");
 const IngredientsModel = require("./ingredients");
 const StepModel = require("./step");
+const OrderModel = require("./order");
 const MaterialModel = require("./materials");
 const Reciepes_has_IngredientsModel = require("./reciepes_has_ingredients");
 const Reciepes_has_MaterialsModel = require("./reciepes_has_materials");
 const Reciepes_has_StepsModel = require("./reciepes_has_steps");
+const Reciepes_has_OrdersModel = require("./reciepes_has_orders");
 const Users_has_ReciepesModel = require("./users_has_reciepes");
 
 dotenv.config();
@@ -47,8 +49,10 @@ const models = {
     Restaurant: RestaurantModel.init(sequelize, Sequelize),
     Ingredient: IngredientsModel.init(sequelize, Sequelize),
     Step: StepModel.init(sequelize, Sequelize),
+    Order: OrderModel.init(sequelize, Sequelize),
     Material: MaterialModel.init(sequelize, Sequelize),
     Candidates_has_Tv_show: Candidates_has_Tv_showModel.init(sequelize, Sequelize),
+    Reciepes_has_Orders: Reciepes_has_OrdersModel.init(sequelize, Sequelize),
     Candidates_has_Reciepes: Candidates_has_ReciepesModel.init(sequelize, Sequelize),
     Reciepes_has_Restaurants: Reciepes_has_RestaurantsModel.init(sequelize, Sequelize),
     Reciepes_has_Ingredients: Reciepes_has_IngredientsModel.init(sequelize, Sequelize),
