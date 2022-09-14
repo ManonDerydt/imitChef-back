@@ -8,6 +8,7 @@ const candidateRoutes = require("./modules/candidates/candidates.routes");
 const reciepeRoutes = require("./modules/reciepes/reciepes.routes");
 const restaurantRoutes = require("./modules/restaurants/restaurants.routes");
 const orderRoutes = require("./modules/orders/order.routes");
+const dealRoutes = require("./modules/deals/deals.routes");
 require("./passport/local");
 require("./passport/jwt");
 
@@ -24,6 +25,7 @@ app.use(candidateRoutes);
 app.use(reciepeRoutes);
 app.use(restaurantRoutes);
 app.use(orderRoutes);
+app.use(dealRoutes);
 
 (async() => {
     try {

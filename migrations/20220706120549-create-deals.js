@@ -25,25 +25,16 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      image: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      chef: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      adress: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      Menu: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
+
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Deals');
+    try {
+      await queryInterface.removeColumn("Deals", "image");
+
+    } catch (error) {
+      throw error;
+    }
   }
 };
