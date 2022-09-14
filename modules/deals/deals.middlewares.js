@@ -12,7 +12,7 @@ exports.getAllDeals = (req, res, next) => {
     async function execute(){
         try{
             return await models.Deal.findAll({
-                attributes: ['price','max_people','deadline',"image","adress","chef","menu","number","restaurant","email"]
+                attributes: ['price','max_people','deadline',"image","adress","chef","menu","number","restaurant","email","city"]
             });
         }catch (error){
             throw error;
