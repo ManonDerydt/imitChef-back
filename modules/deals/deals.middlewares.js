@@ -5,8 +5,6 @@ const debug = require("debug")("app:deals");
 exports.getAllDeals = (req, res, next) => {
     debug("getAllDeals");
 
-    const {id} = req.params;
-
     return execute()
         .then(deals => res.json(deals))
         .catch(err => next(err));
@@ -14,7 +12,7 @@ exports.getAllDeals = (req, res, next) => {
     async function execute(){
         try{
             return await models.Deal.findAll({
-                attributes: ['price','max_people','image']
+                attributes: ['price','max_people','deadline',"image","adress","chef","menu","number","restaurant","email"]
             });
         }catch (error){
             throw error;
