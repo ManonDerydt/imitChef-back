@@ -11,6 +11,7 @@ const IngredientsModel = require("./ingredients");
 const StepModel = require("./step");
 const OrderModel = require("./order");
 const DealModel = require("./deal");
+const GalleryModel = require("./gallery");
 const MaterialModel = require("./materials");
 const Reciepes_has_IngredientsModel = require("./reciepes_has_ingredients");
 const Deals_has_OrdersModel = require("./deals_has_orders");
@@ -54,6 +55,7 @@ const models = {
     Step: StepModel.init(sequelize, Sequelize),
     Order: OrderModel.init(sequelize, Sequelize),
     Deal: DealModel.init(sequelize, Sequelize),
+    Gallery: GalleryModel.init(sequelize, Sequelize),
     Material: MaterialModel.init(sequelize, Sequelize),
     Candidates_has_Tv_show: Candidates_has_Tv_showModel.init(sequelize, Sequelize),
     Reciepes_has_Orders: Reciepes_has_OrdersModel.init(sequelize, Sequelize),
