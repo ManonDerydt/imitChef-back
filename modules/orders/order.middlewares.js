@@ -18,8 +18,8 @@ exports.getOrder = (req, res, next) => {
                 attributes : ["id", "time", "price", "cutlery", "discount", "tip"],
                 include : [
                     {
-                        model : models.Reciepe,
-                        attributes: ["id", "image", "title", "description","time_cooking","difficulty"]
+                        model : models.Deal,
+                        attributes: ['id','price','max_people','deadline',"image","adress","chef","menu","number","restaurant","email","city"]
                     }
                 ]
             });

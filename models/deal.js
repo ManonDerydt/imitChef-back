@@ -26,6 +26,7 @@ class Deal extends Sequelize.Model {
   }
   static associate(models) {
       Deal.belongsToMany(models.Restaurant, {through : models.Restaurants_has_Deals})
+      Deal.belongsToMany(models.Order, {through : models.Deals_has_Orders})
   }
 }
 
