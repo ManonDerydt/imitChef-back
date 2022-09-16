@@ -20,6 +20,10 @@ exports.getOrder = (req, res, next) => {
                     {
                         model : models.Deal,
                         attributes: ['id','price','max_people','deadline',"image","adress","chef","menu","number","restaurant","email","city"]
+                    },
+                    {
+                        model : models.User,
+                        attributes: ['lastname','firstname','email']
                     }
                 ]
             });

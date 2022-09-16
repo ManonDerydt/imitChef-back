@@ -21,6 +21,7 @@ class Order extends Sequelize.Model {
   static associate(models) {
       Order.belongsToMany(models.Reciepe, {through : models.Reciepes_has_Orders})
       Order.belongsToMany(models.Deal, {through : models.Deals_has_Orders})
+      Order.belongsToMany(models.User, {through : models.Users_has_Orders})
   }
 }
 
